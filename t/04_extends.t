@@ -1,13 +1,15 @@
+#!perl -wT
+
 use strict;
 
 BEGIN {
+  ($ENV{PWD}) = $ENV{PWD} =~ /(.*)/;
   require "$ENV{PWD}/test-lib/setup.pl";
 }
 
 use Test::More tests => 8;
 
 # is the abstract in test-lib a true abstract?
-
 use_ok("Car::Factory");
 my $factory = new Car::Factory;
 ok( defined $factory, "Factory has been instantiated");

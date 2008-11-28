@@ -1,6 +1,9 @@
+#!perl -wT
+
 use strict;
 
 BEGIN {
+  ($ENV{PWD}) = $ENV{PWD} =~ /(.*)/;
   require "$ENV{PWD}/test-lib/setup.pl";
 }
 

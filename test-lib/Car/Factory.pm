@@ -9,7 +9,9 @@ use Class::Interface;
 use Car::Fiat;
 use Car::Ford;
 use Car::Mercedes;
-use Car::BMW;
+
+# not using Car::BMW - it requires Class::AccessorMaker which you may
+# not have.
 
 sub new {
   return bless( {}, ref( $_[0] ) || $_[0] );
@@ -29,7 +31,8 @@ sub createCar {
     $created = Car::Mercedes->new();
 
   } elsif ( lc($car) eq "bmw" ) {
-    $created = Car::BMW->new();
+    eval qq{ use Car::BMW };
+    $created = Car::BMW->new() unless $@;
 
   } else {
     die "Cannot build cars of type $car (yet)";

@@ -166,7 +166,7 @@ use base qw(Exporter);
 use Carp;
 
 # some default class vars
-$Class::Interface::VERSION = "1.0";
+$Class::Interface::VERSION = "1.01";
 
 # some class vars for changing behaviour
 $Class::Interface::AUTO_CONSTRUCTOR = 0;
